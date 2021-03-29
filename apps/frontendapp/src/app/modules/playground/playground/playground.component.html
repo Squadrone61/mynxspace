@@ -1,1 +1,17 @@
-<ui-button></ui-button>
+<ui-pattern>
+  <div class='w-full flex space-x-4'>
+    <ui-button class='my-2' [options]='options'>Button text</ui-button>
+    <ui-button class='my-2' [options]='options'>Button text</ui-button>
+    <ui-button class='my-2' [options]='options'>Button text</ui-button>
+  </div>
+
+  <div>
+    <select [ngModel]='options.color' (ngModelChange)='setClr($event)'>
+      <option *ngFor='let clr of colors' [value]="clr">{{clr}}</option>
+    </select>
+    <select [ngModel]='options.type' (ngModelChange)='setTy($event)'>
+      <option *ngFor='let ty of type' [value]="ty">{{ty}}</option>
+    </select>
+  </div>
+
+</ui-pattern>

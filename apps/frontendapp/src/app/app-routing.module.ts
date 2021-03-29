@@ -14,7 +14,14 @@ const devRoutes: Routes = environment.production
       },
     ];
 
-const routes: Routes = [...devRoutes];
+const routes: Routes = [
+  ...devRoutes,
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/main/main.module').then((m) => m.MainModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,14 +1,12 @@
+const uiconfig = require('./libs/ui/tailwind.theme.js');
 module.exports = {
+  presets: [uiconfig],
   purge: {
-    content: [
-      "./apps/**/*.{html,ts}",
-      "./libs/**/*.{html,ts}"
-    ]
+    content: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],
   },
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
   },
   variants: {},
   plugins: [],
-}
+};

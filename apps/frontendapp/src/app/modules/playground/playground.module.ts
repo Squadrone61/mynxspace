@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { PlaygroundRoutingModule } from './playground-routing.module';
 import { PlaygroundComponent } from './playground/playground.component';
 import { SharedModule } from '../../shared/shared.module';
+import { PatternComponent } from './playground/pattern.component';
 
 @NgModule({
-  declarations: [PlaygroundComponent],
+  declarations: [PlaygroundComponent, PatternComponent],
   imports: [CommonModule, PlaygroundRoutingModule, SharedModule],
 })
 export class PlaygroundModule {}

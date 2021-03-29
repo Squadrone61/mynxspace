@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { btnType, buttonOptions, Colors } from '@libs/ui';
 
 @Component({
   selector: 'mynxspace-playground',
@@ -6,8 +7,30 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PlaygroundComponent implements OnInit {
-  constructor() {}
+export class PlaygroundComponent {
+  options: buttonOptions = {
+    type: btnType.ROUND,
+    color: Colors.PRIMARY,
+  };
 
-  ngOnInit(): void {}
+  colors: Colors[] = [Colors.PRIMARY, Colors.SECONDARY];
+  type: btnType[] = [
+    btnType.ROUND,
+    btnType.OUTLINE,
+    btnType.CIRCULAR,
+    btnType.SQUARE,
+  ];
+
+  setClr(e) {
+    this.options = {
+      ...this.options,
+      color: e,
+    };
+  }
+  setTy(e) {
+    this.options = {
+      ...this.options,
+      type: e,
+    };
+  }
 }

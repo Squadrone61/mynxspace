@@ -1,3 +1,6 @@
-<header class="bg-indigo-600 text-center text-indigo-400">
- sajlkdhfkljashdkfjhjksdf
+<header class='bg-indigo-600 text-center text-indigo-400'>
+  <label for='theme'>theme {{theme | async}}</label>
+  <input type='checkbox' id='theme' [ngModel]='model' (ngModelChange)='changeTheme($event)'>
 </header>
+
+<router-outlet></router-outlet>

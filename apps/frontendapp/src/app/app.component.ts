@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Theme, ThemeService } from './shared/services/theme.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'mynxspace-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'frontendapp';
+  theme: Observable<string> = this.ts.theme;
+  model;
+  constructor(private ts: ThemeService) {}
+
+  changeTheme(e) {
+    this.ts.setTheme(e ? Theme.DARK : Theme.LIGHT);
+  }
 }
