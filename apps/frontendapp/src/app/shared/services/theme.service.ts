@@ -9,7 +9,7 @@ export enum Theme {
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private _theme = new Subject();
+  private _theme = new Subject<string>();
   public theme = this._theme.asObservable();
 
   private get lsTheme() {
