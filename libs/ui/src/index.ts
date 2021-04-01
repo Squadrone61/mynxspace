@@ -1,4 +1,3 @@
-export * from './lib/components/atoms';
 export * from './lib/models';
-
-export { UiModule } from './lib/ui.module';
+export { CardModule } from './lib/components/card/card.module';
+export { ButtonModule } from './lib/components/button/button.module';

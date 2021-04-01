@@ -3,15 +3,33 @@
     <ui-button class='my-2' [options]='options'>Button text</ui-button>
     <ui-button class='my-2' [options]='options'>Button text</ui-button>
     <ui-button class='my-2' [options]='options'>Button text</ui-button>
+
+    <div>
+      <select [ngModel]='options.color' (ngModelChange)='setClr($event)'>
+        <option *ngFor='let clr of colors' [value]='clr'>{{clr}}</option>
+      </select>
+      <select [ngModel]='options.type' (ngModelChange)='setTy($event)'>
+        <option *ngFor='let ty of type' [value]='ty'>{{ty}}</option>
+      </select>
+    </div>
   </div>
 
-  <div>
-    <select [ngModel]='options.color' (ngModelChange)='setClr($event)'>
-      <option *ngFor='let clr of colors' [value]="clr">{{clr}}</option>
-    </select>
-    <select [ngModel]='options.type' (ngModelChange)='setTy($event)'>
-      <option *ngFor='let ty of type' [value]="ty">{{ty}}</option>
-    </select>
+  <div class='p-6'>
+    <ui-card>
+      <ui-card-header [avatar]='imgSrc'>
+        <ui-card-title>Title here</ui-card-title>
+        <ui-card-subtitle>subtitle here</ui-card-subtitle>
+      </ui-card-header>
+      <img ui-card-image [src]='imgSrc' alt='image'>
+      <ui-card-body>
+        <p>{{loremText}}</p>
+      </ui-card-body>
+      <ui-card-footer>
+        <ui-button [options]='options'>LIKE</ui-button>
+        <ui-button [options]='options'>DISLIKE</ui-button>
+      </ui-card-footer>
+    </ui-card>
   </div>
+
 
 </ui-pattern>
