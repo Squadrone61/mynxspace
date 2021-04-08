@@ -18,14 +18,10 @@ const routes: Routes = [
   ...devRoutes,
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'playground',
-  },
-  /* {
-    path: '',
+    component: null,
     loadChildren: () =>
       import('./modules/main/main.module').then((m) => m.MainModule),
-  },*/
+  },
 ];
 
 @NgModule({

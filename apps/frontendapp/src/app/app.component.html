@@ -1,8 +1,16 @@
-<header class='bg-indigo-600 text-center text-indigo-400'>
+<div class='h-20 bg-primary dark:bg-primary-dark text-center text-text-light dark:text-text-dark flex flex-row'>
+
+
+  <a class='flex flex-grow-0 flex-shrink-0 my-auto w-20 ' [routerLink]='["/playground"]'>
+    <img src='assets/img/s.svg' width='50'
+         class='flex mx-auto text-center transition-all duration-500 ease-in-out
+       transform dark:filter-invert dark:hover:filter-none hover:filter-invert hover:scale-125'>
+  </a>
+<span class='flex flex-grow'></span>
   <label for='theme'>theme {{theme | async}}</label>
   <select id='theme' [ngModel]='theme | async' (ngModelChange)='changeTheme($event)'>
     <option *ngFor='let op of themeOptions' [ngValue]='op'>{{op}}</option>
   </select>
-</header>
+</div>
 
 <router-outlet></router-outlet>

@@ -24,14 +24,14 @@ module.exports = {
           dark: colors.gray['50'],
         },
         primary: {
-          light: colors.blue['400'],
+          light: colors.blue['300'],
           DEFAULT: colors.blue['500'],
-          dark: colors.blue['600'],
+          dark: colors.blue['800'],
         },
         secondary: {
-          light: colors.indigo['400'],
+          light: colors.indigo['300'],
           DEFAULT: colors.indigo['500'],
-          dark: colors.indigo['600'],
+          dark: colors.indigo['800'],
         },
       },
     },

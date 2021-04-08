@@ -29,28 +29,59 @@ export class ButtonComponent {
   }
 
   get defaultClasses() {
-    return `py-2 px-4 focus:outline-none focus:ring ring-${this._options.color}-light`;
+    if (this._options.type === btnType.CIRCULAR) {
+      return `p-4 focus:outline-none focus:ring ${this.defaultColors}`;
+    } else {
+      return `py-2 px-4 focus:outline-none focus:ring ${this.defaultColors}`;
+    }
+  }
+
+  get defaultColors() {
+    if (this._options.color === Colors.SECONDARY) {
+      return `ring-secondary-light`;
+    } else {
+      return `ring-primary-light`;
+    }
   }
 
   get typeClass() {
     if (this._options.type === btnType.OUTLINE) {
       return (
-        `border-solid border-2 border-${this._options.color} bg-back-light hover:bg-${this._options.color} text-${this._options.color} hover:text-text-light rounded ` +
-        `dark:border-${this._options.color} dark:bg-back-dark dark:hover:bg-${this._options.color} dark:text-text-dark `
+        `border-solid border-2 bg-back-light hover:text-text-light rounded ` +
+        `dark:bg-back-dark dark:text-text-dark ${this.outlineColors}`
       );
     }
     if (this._options.type === btnType.SQUARE) {
-      return `${this.normalBg} rounded-none`;
+      return `${this.fillColors} rounded-none`;
     }
     if (this._options.type === btnType.DEFAULT) {
-      return `${this.normalBg} rounded`;
+      return `${this.fillColors} rounded`;
     }
     if (this._options.type === btnType.CIRCULAR) {
-      return `${this.normalBg} rounded-full`;
+      return `${this.fillColors} rounded-full`;
     }
   }
 
-  private get normalBg() {
-    return `bg-${this._options.color} hover:bg-${this._options.color}-light text-white`;
+  private get fillColors() {
+    if (this._options.color === Colors.SECONDARY)
+      return `bg-secondary hover:bg-secondary-light text-white`;
+    else {
+      return `bg-primary hover:bg-primary-light text-white`;
+    }
   }
+
+  private get outlineColors() {
+    if (this._options.color === Colors.SECONDARY) {
+      return (
+        `border-secondary hover:bg-secondary text-secondary ` +
+        `dark:border-secondary dark:hover:bg-secondary`
+      );
+    } else
+      return (
+        `border-primary hover:bg-primary text-primary ` +
+        `dark:border-primary dark:hover:bg-primary`
+      );
+  }
+
+  private;
 }
