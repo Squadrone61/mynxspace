@@ -3,6 +3,9 @@ module.exports = {
   presets: [uiconfig],
   purge: {
     content: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],
+    options: {
+      keyframes: true,
+    },
   },
   theme: {
     extend: {},

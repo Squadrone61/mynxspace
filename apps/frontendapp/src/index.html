@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Safa Akyüz</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <title>Safa Akyüz</title>
+  <base href='/' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <link rel='icon' type='image/x-icon' href='favicon.ico' />
+  <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
 </head>
-  <body>
-    <mynxspace-root></mynxspace-root>
-  </body>
+<body>
+<script>
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+    document.documentElement.classList.add('dark');
+  }
+</script>
+<mynxspace-root>
+
+  <div class='app-loading'>
+    <img src='assets/img/s.svg' class='logo'>
+    <div class='slide-out-top'></div>
+    <svg class='spinner' viewBox='25 25 50 50'>
+      <circle class='path' cx='50' cy='50' r='20' fill='none' stroke-width='2' stroke-miterlimit='10' />
+    </svg>
+  </div>
+
+</mynxspace-root>
+</body>
 </html>

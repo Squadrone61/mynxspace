@@ -16,15 +16,11 @@ export class ThemeService {
     return localStorage.getItem('theme');
   }
   constructor() {
-    this._theme.next(this.lsTheme);
+    this.setTheme((this.lsTheme as Theme) || Theme.OS);
   }
 
   setTheme(mode: Theme) {
-    if (mode === Theme.OS) {
-      localStorage.removeItem('theme');
-    } else {
-      localStorage.setItem('theme', mode);
-    }
+    localStorage.setItem('theme', mode);
     this._theme.next(mode);
     this.setHeaders();
   }
@@ -33,7 +29,8 @@ export class ThemeService {
     const theme = this.lsTheme;
     if (
       theme === 'dark' ||
-      (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      (theme === 'os' &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
     ) {
       document.documentElement.classList.add('dark');
     } else {

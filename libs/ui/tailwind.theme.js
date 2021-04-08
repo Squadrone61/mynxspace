@@ -43,7 +43,7 @@ module.exports = {
   },
   plugins: [
     plugin(function ({ addUtilities }) {
-      const newUtilities = {
+      const cardImage = {
         '.card-image': {
           margin: '0 -1rem 0 -1rem',
           width: 'calc(100% + 2rem)',
@@ -60,7 +60,21 @@ module.exports = {
           'max-width': 'calc(100% + 2rem)',
         },
       };
-      addUtilities(newUtilities, ['first', 'last']);
+      addUtilities(cardImage, ['first', 'last']);
+    }),
+    plugin(function ({ addUtilities }) {
+      const filterUtil = {
+        '.filter-none': {
+          filter: 'none',
+        },
+        '.filter-grayscale': {
+          filter: 'grayscale(100%)',
+        },
+        '.filter-invert': {
+          filter: 'invert(100%)',
+        },
+      };
+      addUtilities(filterUtil, ['responsive', 'hover', 'dark']);
     }),
   ],
 };

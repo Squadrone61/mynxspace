@@ -53,7 +53,9 @@
               "apps/frontendapp/src/favicon.ico",
               "apps/frontendapp/src/assets"
             ],
-            "styles": ["apps/frontendapp/src/styles.css"],
+            "styles": [
+              "apps/frontendapp/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -115,7 +117,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/frontendapp"],
+          "outputs": [
+            "coverage/apps/frontendapp"
+          ],
           "options": {
             "jestConfig": "apps/frontendapp/jest.config.js",
             "passWithNoTests": true
@@ -144,7 +148,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/frontendapp-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/frontendapp-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -157,12 +163,16 @@
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -187,12 +197,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -208,12 +222,16 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/ui/**/*.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui"],
+          "outputs": [
+            "coverage/libs/ui"
+          ],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true

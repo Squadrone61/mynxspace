@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   theme: Observable<string> = this.ts.theme;
-  model;
+  themeOptions = [Theme.OS, Theme.DARK, Theme.LIGHT];
   constructor(private ts: ThemeService) {}
 
   changeTheme(e) {
-    this.ts.setTheme(e ? Theme.DARK : Theme.LIGHT);
+    this.ts.setTheme(e);
   }
 }
