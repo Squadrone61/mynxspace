@@ -1,6 +1,7 @@
 {
   "name": "mynxspace",
   "version": "0.0.0",
+  "description": "Experimenting environment for Angular",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -12,9 +13,8 @@
     "api:dev": "nx run api:serve",
     "api:prod": "nx run api:build:production && node dist/apps/api/main.js",
     "update": "nx migrate latest",
-    "postcss:build": "postcss apps/frontendapp/src/styles.pcss -o apps/frontendapp/src/styles.css",
-    "prestart": "npm run postcss:build",
-    "prebuild": "npm run postcss:build --env=production",
+    "prestart": "NODE_ENV=development postcss apps/frontendapp/src/styles.pcss -o apps/frontendapp/src/styles.css",
+    "prebuild": "NODE_ENV=production postcss apps/frontendapp/src/styles.pcss -o apps/frontendapp/src/styles.css",
     "generate-icons": "svg-generator"
   },
   "private": true,
