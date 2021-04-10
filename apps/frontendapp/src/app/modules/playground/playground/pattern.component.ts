@@ -17,7 +17,6 @@ import {
       }
 
       .wsc-pattern-header {
-        color: grey;
         display: inline-block;
         font-size: 18px;
         font-weight: 700;
@@ -25,7 +24,6 @@ import {
       }
 
       .wsc-pattern-body {
-        background-color: #fcfaf2;
         border: 2px dashed #dadada;
         padding: 1rem;
       }

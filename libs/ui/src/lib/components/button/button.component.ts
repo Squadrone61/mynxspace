@@ -60,25 +60,30 @@ export class ButtonComponent {
     if (this._options.type === btnType.CIRCULAR) {
       return `${this.fillColors} rounded-full`;
     }
+    if (this._options.type === btnType.PLAIN) {
+      return `rounded bg-hovered-light dark:bg-hovered-dark
+      bg-opacity-0 dark:bg-opacity-0
+      hover:bg-opacity-20 dark:hover:bg-opacity-20`;
+    }
   }
 
   private get fillColors() {
     if (this._options.color === Colors.SECONDARY)
-      return `bg-secondary hover:bg-secondary-light text-white`;
+      return `bg-secondary hover:bg-secondary-light dark:bg-secondary-dark dark:hover:bg-secondary-light text-white`;
     else {
-      return `bg-primary hover:bg-primary-light text-white`;
+      return `bg-primary hover:bg-primary-light dark:bg-primary-dark dark:hover:bg-primary-light text-white`;
     }
   }
 
   private get outlineColors() {
     if (this._options.color === Colors.SECONDARY) {
       return (
-        `border-secondary hover:bg-secondary text-secondary ` +
+        `border-secondary dark:border-secondary-dark hover:bg-secondary text-secondary ` +
         `dark:border-secondary dark:hover:bg-secondary`
       );
     } else
       return (
-        `border-primary hover:bg-primary text-primary ` +
+        `border-primary dark:border-primary-dark hover:bg-primary text-primary ` +
         `dark:border-primary dark:hover:bg-primary`
       );
   }

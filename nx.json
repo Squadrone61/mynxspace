@@ -19,6 +19,7 @@
     "frontendapp": { "tags": [] },
     "frontendapp-e2e": { "tags": [], "implicitDependencies": ["frontendapp"] },
     "api": { "tags": [] },
-    "ui": { "tags": [] }
+    "ui": { "tags": [] },
+    "icon": { "tags": [] }
   }
 }

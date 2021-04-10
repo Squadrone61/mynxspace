@@ -5,6 +5,7 @@ export enum btnType {
   SQUARE = 'SQUARE',
   OUTLINE = 'OUTLINE',
   CIRCULAR = 'CIRCULAR',
+  PLAIN = 'PLAIN',
 }
 
 export interface btnOptions {

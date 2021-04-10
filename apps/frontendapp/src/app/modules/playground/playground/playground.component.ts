@@ -30,6 +30,7 @@ export class PlaygroundComponent {
     btnType.OUTLINE,
     btnType.CIRCULAR,
     btnType.SQUARE,
+    btnType.PLAIN,
   ];
 
   setClr(e) {

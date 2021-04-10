@@ -13,6 +13,11 @@ module.exports = {
           '0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06)',
       },
       colors: {
+        hovered: {
+          light: colors.gray['500'],
+          DEFAULT: colors.gray['300'],
+          dark: colors.gray['300'],
+        },
         back: {
           light: colors.white,
           DEFAULT: colors.white,
@@ -24,12 +29,12 @@ module.exports = {
           dark: colors.gray['50'],
         },
         primary: {
-          light: colors.blue['300'],
+          light: colors.blue['400'],
           DEFAULT: colors.blue['500'],
           dark: colors.blue['800'],
         },
         secondary: {
-          light: colors.indigo['300'],
+          light: colors.indigo['400'],
           DEFAULT: colors.indigo['500'],
           dark: colors.indigo['800'],
         },
@@ -39,6 +44,7 @@ module.exports = {
   variants: {
     extend: {
       boxShadow: ['dark'],
+      animation: ['hover'],
     },
   },
   plugins: [

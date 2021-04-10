@@ -1,0 +1,11 @@
+<ui-card>
+  <ui-card-header>
+    <ui-card-title>Settings</ui-card-title>
+  </ui-card-header>
+  <ui-card-body>
+    <label for='theme'>theme {{theme | async}}</label>
+    <select id='theme' [ngModel]='theme | async' (ngModelChange)='changeTheme($event)'>
+      <option *ngFor='let op of themeOptions' [ngValue]='op'>{{op}}</option>
+    </select>
+  </ui-card-body>
+</ui-card>

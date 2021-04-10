@@ -11,6 +11,11 @@
     height: 100% !important;
   }
 
+  .container-wrapper {
+    height: calc(100vh - theme('spacing.20'));
+    @apply overflow-y-auto overflow-x-hidden relative
+  }
+
   /*-------------*/
   .app-loading {
     position: relative;

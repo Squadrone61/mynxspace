@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-import { Theme, ThemeService } from './shared/services/theme.service';
-import { Observable } from 'rxjs';
 import { btnOptions, btnType } from '@libs/ui';
+import { SettingsComponent } from './shared/modules/settings/settings.component';
+import { UiComponentService } from './shared/services/ui-component.service';
+import { UiComponentHandler } from './shared/providers/ui-component.handler';
+
+interface AppRoute {
+  label: string;
+  target: string;
+}
 
 @Component({
   selector: 'mynxspace-root',
@@ -9,15 +15,33 @@ import { btnOptions, btnType } from '@libs/ui';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  theme: Observable<string> = this.ts.theme;
-  themeOptions = [Theme.OS, Theme.DARK, Theme.LIGHT];
-
-  homeIconOptions: Partial<btnOptions> = {
-    type: btnType.CIRCULAR,
+  routeButtonOptions: Partial<btnOptions> = {
+    type: btnType.PLAIN,
   };
-  constructor(private ts: ThemeService) {}
+  routes: AppRoute[] = [
+    {
+      label: 'playground',
+      target: '/playground',
+    },
+    {
+      label: 'route2',
+      target: '/',
+    },
+    {
+      label: 'me',
+      target: '/about',
+    },
+  ];
+  settings = false;
 
-  changeTheme(e) {
-    this.ts.setTheme(e);
+  constructor(private cs: UiComponentService) {}
+
+  toggleSettings() {
+    this.settings = !this.settings;
+    if (this.settings) {
+      this.cs.loadComponent(SettingsComponent);
+    } else {
+      this.cs.clearComponent();
+    }
   }
 }
