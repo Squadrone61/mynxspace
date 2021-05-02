@@ -6,21 +6,20 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UiComponentService {
   vc: ViewContainerRef;
-
+  cid: number;
   constructor(
     private r: ComponentFactoryResolver,
     @Inject('component-creator-service') private ccs
   ) {
-    ccs.onContainerCreated((container) => {
+    ccs.onContainerCreated((container, id) => {
       this.vc = container;
+      this.cid = id;
     });
-    ccs.onContainerDestroyed((container) => {
-      this.vc = this.vc === container ? undefined : this.vc;
+    ccs.onContainerDestroyed((container, id) => {
+      this.vc = this.cid === id ? undefined : this.vc;
     });
   }
 

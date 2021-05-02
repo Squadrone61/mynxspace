@@ -45,6 +45,7 @@ module.exports = {
     extend: {
       boxShadow: ['dark'],
       animation: ['hover'],
+      opacity: ['disabled'],
     },
   },
   plugins: [

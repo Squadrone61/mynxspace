@@ -1,57 +1,62 @@
 <ui-pattern>
 
-  <div class='w-full h-80'>
-    <div class='app-loading'>
-      <img src='assets/img/s.svg' class='logo'>
-      <div class='slide-out-top'></div>
-      <svg class='spinner' viewBox='25 25 50 50'>
-        <circle class='path' cx='50' cy='50' r='20' fill='none' stroke-width='2' stroke-miterlimit='10' />
+  <div class="w-full h-80">
+    <div class="app-loading">
+      <img src="assets/img/s.svg" class="logo">
+      <div class="slide-out-top"></div>
+      <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
       </svg>
     </div>
   </div>
 
-  <div class='w-full flex space-x-4'>
-    <ui-button class='my-2' [options]='options'>Button text</ui-button>
-    <ui-button class='my-2' [options]='options'>Button text</ui-button>
-    <ui-button class='my-2' [options]='options'>Button text</ui-button>
+  <div class="w-full flex space-x-4">
+    <ui-button class="my-2" [options]="options">Button text</ui-button>
 
     <div>
-      <select [ngModel]='options.color' (ngModelChange)='setClr($event)'>
-        <option *ngFor='let clr of colors' [value]='clr'>{{clr}}</option>
+      <select [ngModel]="options.color" (ngModelChange)="setClr($event)">
+        <option *ngFor="let clr of colors" [value]="clr">{{clr}}</option>
       </select>
-      <select [ngModel]='options.type' (ngModelChange)='setTy($event)'>
-        <option *ngFor='let ty of type' [value]='ty'>{{ty}}</option>
+      <select [ngModel]="options.type" (ngModelChange)="setTy($event)">
+        <option *ngFor="let ty of type" [value]="ty">{{ty}}</option>
       </select>
     </div>
+
+    <ui-button class="my-2"
+               [loading]="btnLoading"
+               (uiClick)="loadStuff()"
+    >Button text
+    </ui-button>
+
   </div>
 
-  <div class='p-6 flex flex-row space-x-4 w-1/2'>
-    <ui-card class='flex'>
-      <ui-card-header [avatar]='imgSrc'>
+  <div class="p-6 flex flex-row space-x-4 w-1/2">
+    <ui-card class="flex">
+      <ui-card-header [avatar]="imgSrc">
         <ui-card-title>Title here</ui-card-title>
         <ui-card-subtitle>subtitle here</ui-card-subtitle>
       </ui-card-header>
-      <img ui-card-image [src]='imgSrc' alt='image'>
+      <img ui-card-image [src]="imgSrc" alt="image">
       <ui-card-body>
         <p>{{loremText}}</p>
       </ui-card-body>
       <ui-card-footer>
-        <ui-button [options]='options'>LIKE</ui-button>
-        <ui-button [options]='options'>DISLIKE</ui-button>
+        <ui-button [options]="options">LIKE</ui-button>
+        <ui-button [options]="options">DISLIKE</ui-button>
       </ui-card-footer>
     </ui-card>
-    <ui-card class='flex'>
-      <ui-card-header [avatar]='imgSrc'>
+    <ui-card class="flex">
+      <ui-card-header [avatar]="imgSrc">
         <ui-card-title>Title here</ui-card-title>
         <ui-card-subtitle>subtitle here</ui-card-subtitle>
       </ui-card-header>
-      <img ui-card-image [src]='imgSrc' alt='image'>
+      <img ui-card-image [src]="imgSrc" alt="image">
       <ui-card-body>
         <p>{{loremText}}</p>
       </ui-card-body>
       <ui-card-footer>
-        <ui-button [options]='options'>LIKE</ui-button>
-        <ui-button [options]='options'>DISLIKE</ui-button>
+        <ui-button [options]="options">LIKE</ui-button>
+        <ui-button [options]="options">DISLIKE</ui-button>
       </ui-card-footer>
     </ui-card>
   </div>

@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { SvgIconsModule } from '@ngneat/svg-icon';
-import { settingsIcon } from '@app/svg/settings';
+import { baseIcons } from '@app/svg/base';
 import { socialsIcons } from '@app/svg/socials';
-import { slogoIcon } from '@app/svg/slogo';
 
 @NgModule({
   declarations: [],
   imports: [
     SvgIconsModule.forRoot({
-      icons: [slogoIcon, settingsIcon, ...socialsIcons],
+      icons: [...baseIcons, ...socialsIcons],
     }),
   ],
   exports: [SvgIconsModule],

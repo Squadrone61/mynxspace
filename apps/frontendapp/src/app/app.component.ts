@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { btnOptions, btnType } from '@libs/ui';
 import { SettingsComponent } from './shared/modules/settings/settings.component';
 import { UiComponentService } from './shared/services/ui-component.service';
-import { UiComponentHandler } from './shared/providers/ui-component.handler';
+import { ThemeService } from './shared/services/theme.service';
 
 interface AppRoute {
   label: string;
@@ -10,14 +9,12 @@ interface AppRoute {
 }
 
 @Component({
-  selector: 'mynxspace-root',
+  selector: 'ui-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers: [UiComponentService],
 })
 export class AppComponent {
-  routeButtonOptions: Partial<btnOptions> = {
-    type: btnType.PLAIN,
-  };
   routes: AppRoute[] = [
     {
       label: 'playground',
@@ -34,7 +31,9 @@ export class AppComponent {
   ];
   settings = false;
 
-  constructor(private cs: UiComponentService) {}
+  constructor(private cs: UiComponentService, private ts: ThemeService) {
+    ts.init();
+  }
 
   toggleSettings() {
     this.settings = !this.settings;

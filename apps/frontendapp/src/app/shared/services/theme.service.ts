@@ -9,19 +9,23 @@ export enum Theme {
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private _theme = new Subject<string>();
+  private _theme = new Subject<Theme>();
   public theme = this._theme.asObservable();
+  public themeSnapshot: Theme;
 
   private get lsTheme() {
     return localStorage.getItem('theme');
   }
-  constructor() {
+
+  init() {
     this.setTheme((this.lsTheme as Theme) || Theme.OS);
   }
 
+  //TODO: should fire setTheme on app_init
   setTheme(mode: Theme) {
     localStorage.setItem('theme', mode);
     this._theme.next(mode);
+    this.themeSnapshot = mode;
     this.setHeaders();
   }
 

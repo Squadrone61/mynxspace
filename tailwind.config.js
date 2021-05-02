@@ -1,7 +1,7 @@
-const uiconfig = require('./libs/ui/tailwind.theme.js');
+const uiConfig = require('./libs/ui/tailwind.theme.js');
 
 module.exports = {
-  presets: [uiconfig],
+  presets: [uiConfig],
   mode: 'jit',
   purge: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],
   theme: {

@@ -1,11 +1,10 @@
 import { Colors } from './common';
 
 export enum btnType {
-  DEFAULT = 'DEFAULT',
-  SQUARE = 'SQUARE',
-  OUTLINE = 'OUTLINE',
-  CIRCULAR = 'CIRCULAR',
-  PLAIN = 'PLAIN',
+  DEFAULT = 'default',
+  SQUARE = 'square',
+  OUTLINE = 'outline',
+  CIRCULAR = 'circular',
 }
 
 export interface btnOptions {

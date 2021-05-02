@@ -1,11 +1,40 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { btnOptions, btnType, Colors } from '../../models';
 
 @Component({
   selector: 'ui-button',
-  template: ` <button [ngClass]="defaultClasses + ' ' + typeClass">
-    <span class="align-text-bottom">
-      <ng-content></ng-content>
+  template: ` <button
+    class="{{ defaultClasses }} {{ paddingClasses }} {{ typeClasses }}"
+    [disabled]="disabled"
+    (click)="uiClick.emit($event)"
+  >
+    <span class="flex flex-row justify-items-center">
+      <svg-icon
+        class="leading-none"
+        fontSize="1.875rem"
+        *ngIf="_options.icon && !loading"
+        [key]="_options.icon"
+      ></svg-icon>
+      <svg-icon
+        class="leading-none"
+        fontSize="1.5rem"
+        *ngIf="loading"
+        key="loading"
+      ></svg-icon>
+
+      <span
+        #txt
+        class="self-center"
+        [class.ml-2]="!!txt.innerText && (_options.icon || loading)"
+      >
+        <ng-content></ng-content>
+      </span>
     </span>
   </button>`,
   styles: [],
@@ -28,15 +57,39 @@ export class ButtonComponent {
     }
   }
 
-  get defaultClasses() {
-    if (this._options.type === btnType.CIRCULAR) {
-      return `p-4 focus:outline-none focus:ring ${this.defaultColors}`;
-    } else {
-      return `py-2 px-4 focus:outline-none focus:ring ${this.defaultColors}`;
-    }
+  @Input()
+  set type(t: btnType) {
+    this._options.type = t;
   }
 
-  get defaultColors() {
+  @Input()
+  set color(c: Colors) {
+    this._options.color = c;
+  }
+
+  @Input()
+  set icon(i: string) {
+    this._options.icon = i;
+  }
+
+  @Input()
+  disabled: boolean;
+
+  @Input()
+  loading: boolean;
+
+  @Output()
+  uiClick: EventEmitter<MouseEvent> = new EventEmitter();
+
+  get defaultClasses() {
+    return `transition-all duration-500 font-bold uppercase disabled:opacity-50 focus:outline-none focus:ring ${this.colorClasses}`;
+  }
+
+  get paddingClasses() {
+    return `p-4`;
+  }
+
+  get colorClasses() {
     if (this._options.color === Colors.SECONDARY) {
       return `ring-secondary-light`;
     } else {
@@ -44,7 +97,7 @@ export class ButtonComponent {
     }
   }
 
-  get typeClass() {
+  get typeClasses() {
     if (this._options.type === btnType.OUTLINE) {
       return (
         `border-solid border-2 bg-back-light hover:text-text-light rounded ` +
@@ -60,18 +113,17 @@ export class ButtonComponent {
     if (this._options.type === btnType.CIRCULAR) {
       return `${this.fillColors} rounded-full`;
     }
-    if (this._options.type === btnType.PLAIN) {
-      return `rounded bg-hovered-light dark:bg-hovered-dark
-      bg-opacity-0 dark:bg-opacity-0
-      hover:bg-opacity-20 dark:hover:bg-opacity-20`;
-    }
   }
 
   private get fillColors() {
-    if (this._options.color === Colors.SECONDARY)
+    if (this._options.color === Colors.SECONDARY) {
       return `bg-secondary hover:bg-secondary-light dark:bg-secondary-dark dark:hover:bg-secondary-light text-white`;
-    else {
+    } else if (this._options.color === Colors.PRIMARY) {
       return `bg-primary hover:bg-primary-light dark:bg-primary-dark dark:hover:bg-primary-light text-white`;
+    } else if (this._options.color === Colors.PLAIN) {
+      return `bg-hovered-light dark:bg-hovered-dark
+      bg-opacity-0 dark:bg-opacity-0
+      hover:bg-opacity-20 dark:hover:bg-opacity-20`;
     }
   }
 
@@ -81,12 +133,11 @@ export class ButtonComponent {
         `border-secondary dark:border-secondary-dark hover:bg-secondary text-secondary ` +
         `dark:border-secondary dark:hover:bg-secondary`
       );
-    } else
+    } else if (this._options.color === Colors.PRIMARY) {
       return (
         `border-primary dark:border-primary-dark hover:bg-primary text-primary ` +
         `dark:border-primary dark:hover:bg-primary`
       );
+    }
   }
-
-  private;
 }

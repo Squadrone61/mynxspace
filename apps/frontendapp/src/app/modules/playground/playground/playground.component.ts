@@ -23,14 +23,14 @@ export class PlaygroundComponent {
     type: btnType.DEFAULT,
     color: Colors.PRIMARY,
   };
+  btnLoading = false;
 
-  colors: Colors[] = [Colors.PRIMARY, Colors.SECONDARY];
+  colors: Colors[] = [Colors.PRIMARY, Colors.SECONDARY, Colors.PLAIN];
   type: btnType[] = [
     btnType.DEFAULT,
     btnType.OUTLINE,
     btnType.CIRCULAR,
     btnType.SQUARE,
-    btnType.PLAIN,
   ];
 
   setClr(e) {
@@ -45,5 +45,9 @@ export class PlaygroundComponent {
       ...this.options,
       type: e,
     };
+  }
+
+  loadStuff() {
+    this.btnLoading = !this.btnLoading;
   }
 }

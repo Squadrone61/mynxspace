@@ -2,10 +2,19 @@
   <ui-card-header>
     <ui-card-title>Settings</ui-card-title>
   </ui-card-header>
-  <ui-card-body>
-    <label for='theme'>theme {{theme | async}}</label>
-    <select id='theme' [ngModel]='theme | async' (ngModelChange)='changeTheme($event)'>
-      <option *ngFor='let op of themeOptions' [ngValue]='op'>{{op}}</option>
-    </select>
+  <ui-card-body class="flex flex-row flex-nowrap">
+
+    <div class="flex flex-row">
+      <label class="flex">use OS theme</label>
+      <input class="flex align-middle" type="checkbox" [(ngModel)]="useOS" (ngModelChange)="useOSTheme($event)">
+    </div>
+
+    <ui-button class="flex" type="circular" color="primary"
+               [icon]="(theme | async) === 'light' ? 'sun' : 'moon'"
+               (uiClick)="toggleTheme()" [disabled]="useOS">
+      {{(theme | async) === 'light' ? 'light' : 'dark'}}
+    </ui-button>
+
+
   </ui-card-body>
 </ui-card>

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Theme, ThemeService } from '../../services/theme.service';
 
@@ -9,11 +9,20 @@ import { Theme, ThemeService } from '../../services/theme.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SettingsComponent {
-  theme: Observable<string> = this.ts.theme;
-  themeOptions = [Theme.OS, Theme.DARK, Theme.LIGHT];
+  theme: Observable<Theme> = this.ts.theme;
+  useOS: boolean = this.ts.themeSnapshot === Theme.OS;
+
   constructor(private ts: ThemeService) {}
 
-  changeTheme(e) {
-    this.ts.setTheme(e);
+  toggleTheme() {
+    this.ts.setTheme(
+      this.ts.themeSnapshot === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
+    );
+  }
+
+  useOSTheme(e: boolean) {
+    if (e) {
+      this.ts.setTheme(Theme.OS);
+    }
   }
 }

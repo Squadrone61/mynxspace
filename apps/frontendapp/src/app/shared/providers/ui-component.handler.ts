@@ -7,14 +7,14 @@ export const UiComponentHandler = {
   onContainerDestroyed(fn) {
     this.destroyListeners.push(fn);
   },
-  registerContainer(container) {
+  registerContainer(container, id) {
     this.createListeners.forEach((fn) => {
-      fn(container);
+      fn(container, id);
     });
   },
-  destroyContainer(container) {
+  destroyContainer(container, id) {
     this.destroyListeners.forEach((fn) => {
-      fn(container);
+      fn(container, id);
     });
   },
 };

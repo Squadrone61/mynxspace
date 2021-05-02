@@ -4,7 +4,7 @@
 
 This is my playground project where experiment/learn things!
 
-## Things i did / want to do
+## Things i did / want to do / want to keep up
 (🟢-done / 🟡-done but can do more / 🔴-not yet)
 - have a [NX workspace](https://nx.dev/) to keep things mono🟢
 - have a simple [NestJS](https://nestjs.com/) app to serve the frontend 🟢
@@ -12,6 +12,8 @@ This is my playground project where experiment/learn things!
 - Style with [Tailwind Css](https://tailwindcss.com/) only. No material. 🟡
 - icon library 🟡
 - do store stuff with [Akita](https://datorama.github.io/akita/) 🔴
+- [threejs](https://threejs.org/) implementation 🔴
+- tests 🔴
 
 
 ## Feedback please 
