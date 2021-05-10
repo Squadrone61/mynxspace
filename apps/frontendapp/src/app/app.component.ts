@@ -21,12 +21,12 @@ export class AppComponent {
       target: '/playground',
     },
     {
-      label: 'route2',
+      label: 'main',
       target: '/',
     },
     {
-      label: 'me',
-      target: '/about',
+      label: 'shop3d',
+      target: '/shop3d',
     },
   ];
   settings = false;

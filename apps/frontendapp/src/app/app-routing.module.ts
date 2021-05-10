@@ -18,9 +18,13 @@ const routes: Routes = [
   ...devRoutes,
   {
     path: '',
-    component: null,
     loadChildren: () =>
       import('./modules/main/main.module').then((m) => m.MainModule),
+  },
+  {
+    path: 'shop3d',
+    loadChildren: () =>
+      import('./modules/shop-3d/shop-3d.module').then((m) => m.Shop3dModule),
   },
 ];
 

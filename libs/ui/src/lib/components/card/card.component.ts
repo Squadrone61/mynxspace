@@ -27,7 +27,7 @@ export class CardComponent {
 
   get cardClasses() {
     return this._options.type === cardType.DEFAULT
-      ? 'block relative p-4 rounded shadow dark:shadow-dark overflow-hidden'
+      ? `block relative p-4 rounded shadow dark:shadow-dark overflow-hidden ${this._options.customClasses}`
       : this._options.customClasses || '';
   }
 }
