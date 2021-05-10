@@ -1,13 +1,15 @@
 <ui-pattern>
 
-  <div class="w-full h-80">
-    <div class="app-loading">
-      <img src="assets/img/s.svg" class="logo">
-      <div class="slide-out-top"></div>
-      <svg class="spinner" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
-      </svg>
-    </div>
+  <div class="w-full">
+    <ui-input label="input" placeholder="holder" [formControl]="ctrl"></ui-input>
+    <ui-input label="input" placeholder="holder" [formControl]="ctrl"></ui-input>
+    {{'val: ' + ctrl.value}}
+
+    <form [formGroup]="ctrlgrp">
+      <ui-input label="input" placeholder="holder" formControlName="inp1"></ui-input>
+      {{ctrlgrp.getRawValue() | json}}
+      {{ctrlgrp.get('inp1').errors | json}}
+    </form>
   </div>
 
   <div class="w-full flex space-x-4">
