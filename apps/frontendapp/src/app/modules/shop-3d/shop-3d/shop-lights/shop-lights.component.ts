@@ -1,8 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { SpotLight } from 'three';
 import * as THREE from 'three';
 import { AnimationReady } from '@angular-three/core/lib/typings';

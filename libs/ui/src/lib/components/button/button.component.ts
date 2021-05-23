@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { btnOptions, btnType, Colors } from "@libs/ui";
+import { btnOptions, btnType, Colors } from '@libs/ui';
 
 @Component({
   selector: 'ui-button',
