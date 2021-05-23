@@ -5,14 +5,14 @@
 
   <a class='flex flex-grow-0 flex-shrink-0 w-16 ' [routerLink]='["/"]'>
     <svg-icon key='slogo' fontSize='3.5rem'
-              class='flex m-auto text-center transition-all duration-500 ease-in-out
+              class='flex m-auto text-center transition-all duration-300 ease-in-out
               transform dark:filter-invert dark:hover:filter-none hover:filter-invert hover:scale-125'
     ></svg-icon>
   </a>
 
   <span class='flex flex-grow'></span>
 
-  <ui-button class='my-auto mx-2 hidden sm:block' color="plain" *ngFor='let route of routes'
+  <ui-button class='my-auto mx-2 hidden sm:block' [options]="{color: 'plain'}" *ngFor='let route of routes'
              [routerLink]='[route.target]'>{{route.label | uppercase}}</ui-button>
 
   <span class='flex flex-grow'></span>
@@ -20,7 +20,7 @@
   <span class='flex flex-grow-0 flex-shrink-0
                 bg-hovered-light dark:bg-hovered-dark
                 bg-opacity-0 hover:bg-opacity-20 dark:bg-opacity-0 dark:hover:bg-opacity-20
-                w-16 cursor-pointer transition duration-500 ease-in-out rounded-full'
+                w-16 cursor-pointer transition duration-300 ease-in-out rounded-full'
         (click)='toggleSettings()'>
     <svg-icon class='flex m-auto hover:animate-spin' key='settings' fontSize='2rem'></svg-icon>
   </span>
@@ -28,13 +28,13 @@
 </div>
 <div class='container-wrapper'>
   <div class='absolute w-full h-full overflow-y-auto'>
-    <div class='mx-0 sm:mx-4'>
+    <div class='mx-0 sm:mx-4 block'>
         <router-outlet></router-outlet>
     </div>
   </div>
 
   <div class='absolute right-0 w-full sm:w-1/3 h-full bg-opacity-75 dark:bg-opacity-75
-        transition-transform duration-500 transform-gpu
+        transition-transform duration-300 transform-gpu
         {{settings ? "" : "translate-x-full"}}'>
     <div class='m-0 sm:m-2'>
       <ng-template uiComponentContainer></ng-template>

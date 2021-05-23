@@ -1,1 +1,26 @@
-<p>shop-3d works!</p>
+<div class="absolute top-0 left-0 h-full w-full">
+  <ngt-canvas
+    (created)="sceneCreated($event)"
+    [camera]="cameraOptions"
+    [shadows]="true">
+    <ngt-axes-helper *ngIf="dev"
+      [args]="[20]"></ngt-axes-helper>
+    <ngt-ambient-light [intensity]="0.1"></ngt-ambient-light>
+
+    <ui-shop-camera></ui-shop-camera>
+
+    <ui-shop-spot [args]="spotOptions" [item]="selectedItem"></ui-shop-spot>
+
+    <ui-shop-item *ngFor="let item of items"
+                  [item]="item"
+                  (itemReady)="itemsLoaded()"
+                  (itemSelected)="itemSelected($event)"></ui-shop-item>
+
+
+    <ngt-mesh [position]="[0,-1,0]" [rotation]="[-halfPi,0,0]" [receiveShadow]="true">
+      <ngt-plane-geometry [args]="[200,200]"></ngt-plane-geometry>
+      <ngt-mesh-phong-material></ngt-mesh-phong-material>
+    </ngt-mesh>
+  </ngt-canvas>
+
+</div>

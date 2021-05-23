@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { btnOptions, btnType, Colors } from '../../models';
+import { btnOptions, btnType, Colors } from "@libs/ui";
 
 @Component({
   selector: 'ui-button',
@@ -82,7 +82,7 @@ export class ButtonComponent {
   uiClick: EventEmitter<MouseEvent> = new EventEmitter();
 
   get defaultClasses() {
-    return `transition-all duration-500 font-bold uppercase disabled:opacity-50 focus:outline-none focus:ring ${this.colorClasses}`;
+    return `transition-all duration-300 font-bold uppercase disabled:opacity-50 focus:outline-none focus:ring ${this.colorClasses}`;
   }
 
   get paddingClasses() {

@@ -38,7 +38,7 @@ import {
             {{ focus || control.value ? '-translate-y-7 text-xs' : '' }}"
         >
           {{ label }}
-          <span *ngIf="hasError" class="mt-1 text-xs text-red-500">
+          <span *ngIf="hasError" class="mt-1 text-xs text-red-300">
             {{ '| ' + errText }}
           </span>
         </span>
