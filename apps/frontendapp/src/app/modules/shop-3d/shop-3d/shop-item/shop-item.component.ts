@@ -5,13 +5,15 @@ import {
   EventEmitter,
   Output,
   OnInit,
+  NgModule,
 } from '@angular/core';
 import { ShopItem } from './shop-item';
 import * as THREE from 'three';
 import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Observable } from 'rxjs';
-import { LoaderService } from '@angular-three/core';
+import { LoaderService, ThreeCoreModule } from '@angular-three/core';
 import { take } from 'rxjs/operators';
+import { ThreeGroupModule } from '@angular-three/core/group';
 
 @Component({
   selector: 'ui-shop-item',
@@ -59,3 +61,10 @@ export class ShopItemComponent implements OnInit {
     });
   }
 }
+
+@NgModule({
+  declarations: [ShopItemComponent],
+  exports: [ShopItemComponent],
+  imports: [ThreeCoreModule, ThreeGroupModule],
+})
+export class ShopItemModule {}

@@ -1,8 +1,15 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  NgModule,
+} from '@angular/core';
 import { SpotLight } from 'three';
 import * as THREE from 'three';
 import { AnimationReady } from '@angular-three/core/lib/typings';
 import { ShopItem } from '../shop-item/shop-item';
+import { ThreeSpotLightModule } from '@angular-three/core/lights';
+import { ThreeCoreModule } from '@angular-three/core';
 
 @Component({
   selector: 'ui-shop-spot',
@@ -38,3 +45,10 @@ export class ShopLightsComponent {
     }
   }
 }
+
+@NgModule({
+  declarations: [ShopLightsComponent],
+  exports: [ShopLightsComponent],
+  imports: [ThreeCoreModule, ThreeSpotLightModule],
+})
+export class ShopLightsModule {}
