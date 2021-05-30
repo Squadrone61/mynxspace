@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 export enum Theme {
   LIGHT = 'light',
@@ -17,8 +18,13 @@ export class ThemeService {
     return localStorage.getItem('theme');
   }
 
+  constructor(private oc: OverlayContainer) {}
+
   init() {
     this.setTheme((this.lsTheme as Theme) || Theme.OS);
+
+    const occ = this.oc.getContainerElement().classList;
+    occ.add('!bg-opacity-0');
   }
 
   //TODO: should fire setTheme on app_init

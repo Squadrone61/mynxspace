@@ -37,7 +37,13 @@ import { btnOptions, btnType, Colors } from '../../models';
       </span>
     </span>
   </button>`,
-  styles: [],
+  styles: [
+    `
+      :host {
+        display: inline-block;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {

@@ -1,6 +1,18 @@
 <ui-pattern>
 
   <div class="w-full">
+    <ui-dropdown>
+      <ng-container  ngProjectAs="dropdown-content">
+        <a class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent  text-blueGray-700">
+          Action </a>
+        <a class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent  text-blueGray-700">
+          Another action </a>
+      </ng-container>
+    </ui-dropdown>
+
+  </div>
+
+  <div class="w-full">
     <ui-input label="input" placeholder="holder" [formControl]="ctrl"></ui-input>
     <ui-input label="input" placeholder="holder" [formControl]="ctrl"></ui-input>
     {{'val: ' + ctrl.value}}
