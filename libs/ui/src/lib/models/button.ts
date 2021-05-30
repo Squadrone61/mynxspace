@@ -10,6 +10,7 @@ export enum btnType {
 export interface btnOptions {
   type: btnType;
   color: Colors;
+  customClasses: string;
   icon?: string;
   iconPosition?: 'none' | 'lead' | 'trail';
 }

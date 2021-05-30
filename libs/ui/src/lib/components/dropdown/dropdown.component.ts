@@ -1,15 +1,23 @@
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  NgModule,
+} from '@angular/core';
 import { CdkConnectedOverlay, OverlayModule } from '@angular/cdk/overlay';
 import { ButtonModule } from '../button/button.component';
+import { btnOptions } from '../../models';
 
 @Component({
   selector: 'ui-dropdown',
   template: `
     <ui-button
+      class="inline-block"
       cdkOverlayOrigin
       #origin="cdkOverlayOrigin"
-      (uiClick)="isOpen = !isOpen"
-      >menu
+      (uiClick)="isOpen = true"
+      [options]="btnOptions"
+      ><ng-content select="[dropdown-button]"></ng-content>
     </ui-button>
     <ng-template
       cdkConnectedOverlay
@@ -22,10 +30,7 @@ import { ButtonModule } from '../button/button.component';
       cdkConnectedOverlayPanelClass="!bg-opacity-0"
     >
       <div class="w-[12rem]">
-        <div
-          class="bg-white text-base float-left py-2 list-none
-           text-left rounded shadow-lg mt-1 w-[12rem]"
-        >
+        <div class="rounded shadow-lg mt-1 pb-3 w-[12rem] grid grid-cols-1">
           <ng-content select="dropdown-content"></ng-content>
         </div>
       </div>
@@ -34,6 +39,7 @@ import { ButtonModule } from '../button/button.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownComponent {
+  @Input() btnOptions: Partial<btnOptions>;
   isOpen = false;
 
   attached(overlay: CdkConnectedOverlay) {

@@ -7,7 +7,7 @@ import { SharedModule } from './shared/modules/shared.module';
 import { IconsModule } from './shared/modules/icons.module';
 import { SettingsModule } from './shared/modules/settings/settings.module';
 import { UiComponentHandler } from './shared/providers/ui-component.handler';
-import { ButtonModule, CardModule } from '@libs/ui';
+import { ButtonModule, CardModule, DropdownModule } from '@libs/ui';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +18,7 @@ import { ButtonModule, CardModule } from '@libs/ui';
 
     CardModule,
     ButtonModule,
+    DropdownModule,
 
     IconsModule,
     SettingsModule,

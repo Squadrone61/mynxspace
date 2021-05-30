@@ -13,7 +13,9 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
 @Component({
   selector: 'ui-button',
   template: ` <button
-    class="{{ defaultClasses }} {{ paddingClasses }} {{ typeClasses }}"
+    class="{{ _options.customClasses }} {{ defaultClasses }} {{
+      paddingClasses
+    }} {{ typeClasses }}"
     [disabled]="disabled"
     (click)="uiClick.emit($event)"
   >
@@ -40,13 +42,6 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
       </span>
     </span>
   </button>`,
-  styles: [
-    `
-      :host {
-        display: inline-block;
-      }
-    `,
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
@@ -54,6 +49,7 @@ export class ButtonComponent {
     color: Colors.PRIMARY,
     type: btnType.DEFAULT,
     iconPosition: 'none',
+    customClasses: '',
     icon: null,
   };
   @Input()

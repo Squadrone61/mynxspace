@@ -694,9 +694,6 @@ html, body {
 .bottom-0{
 	bottom: 0px;
 }
-.float-left{
-	float: left;
-}
 .m-auto{
 	margin: auto;
 }
@@ -715,12 +712,13 @@ html, body {
 	margin-left: 0px;
 	margin-right: 0px;
 }
+.my-3{
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
+}
 .my-2{
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
-}
-.mt-2{
-	margin-top: 0.5rem;
 }
 .ml-2{
 	margin-left: 0.5rem;
@@ -740,8 +738,14 @@ html, body {
 .block{
 	display: block;
 }
+.inline-block{
+	display: inline-block;
+}
 .flex{
 	display: flex;
+}
+.grid{
+	display: grid;
 }
 .hidden{
 	display: none;
@@ -820,8 +824,11 @@ html, body {
 .resize{
 	resize: both;
 }
-.list-none{
-	list-style-type: none;
+.grid-cols-1{
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-4{
+	grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .flex-row{
 	flex-direction: row;
@@ -834,6 +841,12 @@ html, body {
 }
 .justify-items-center{
 	justify-items: center;
+}
+.gap-4{
+	gap: 1rem;
+}
+.gap-y-3{
+	row-gap: 0.75rem;
 }
 .space-x-4 > :not([hidden]) ~ :not([hidden]){
 	--tw-space-x-reverse: 0;
@@ -848,9 +861,6 @@ html, body {
 }
 .overflow-hidden{
 	overflow: hidden;
-}
-.whitespace-nowrap{
-	white-space: nowrap;
 }
 .rounded-full{
 	border-radius: 9999px;
@@ -913,10 +923,6 @@ html, body {
 	--tw-bg-opacity: 1;
 	background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
 }
-.bg-white{
-	--tw-bg-opacity: 1;
-	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
 .bg-opacity-0{
 	--tw-bg-opacity: 0;
 }
@@ -950,33 +956,26 @@ html, body {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.pb-3{
+	padding-bottom: 0.75rem;
+}
 .text-center{
 	text-align: center;
 }
-.text-left{
-	text-align: left;
-}
 .align-middle{
 	vertical-align: middle;
-}
-.text-sm{
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-}
-.text-base{
-	font-size: 1rem;
-	line-height: 1.5rem;
 }
 .text-xs{
 	font-size: 0.75rem;
 	line-height: 1rem;
 }
+.text-sm{
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
 .text-xl{
 	font-size: 1.25rem;
 	line-height: 1.75rem;
-}
-.font-normal{
-	font-weight: 400;
 }
 .font-bold{
 	font-weight: 700;
@@ -1227,6 +1226,10 @@ html, body {
 
 	.sm\:block{
 		display: block;
+	}
+
+	.sm\:hidden{
+		display: none;
 	}
 
 	.sm\:w-1\/3{
