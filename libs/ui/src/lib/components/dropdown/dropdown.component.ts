@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { CdkConnectedOverlay, OverlayModule } from '@angular/cdk/overlay';
-import { ButtonModule } from '../button/button.module';
+import { ButtonModule } from '../button/button.component';
 
 @Component({
   selector: 'ui-dropdown',

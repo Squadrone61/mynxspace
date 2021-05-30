@@ -6,6 +6,7 @@ import {
   ViewChild,
   Injector,
   ChangeDetectorRef,
+  NgModule,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -13,8 +14,11 @@ import {
   ControlValueAccessor,
   FormControl,
   FormControlDirective,
+  FormsModule,
   NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
 } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'ui-input',
@@ -108,3 +112,10 @@ export class InputComponent implements ControlValueAccessor {
     this.formControlDirective.valueAccessor.setDisabledState(isDisabled);
   }
 }
+
+@NgModule({
+  declarations: [InputComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  exports: [InputComponent],
+})
+export class InputModule {}

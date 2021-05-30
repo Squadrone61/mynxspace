@@ -3,9 +3,12 @@ import {
   Component,
   EventEmitter,
   Input,
+  NgModule,
   Output,
 } from '@angular/core';
 import { btnOptions, btnType, Colors } from '../../models';
+import { CommonModule } from '@angular/common';
+import { SvgIconsModule } from '@ngneat/svg-icon';
 
 @Component({
   selector: 'ui-button',
@@ -147,3 +150,10 @@ export class ButtonComponent {
     }
   }
 }
+
+@NgModule({
+  declarations: [ButtonComponent],
+  imports: [CommonModule, SvgIconsModule],
+  exports: [ButtonComponent],
+})
+export class ButtonModule {}
