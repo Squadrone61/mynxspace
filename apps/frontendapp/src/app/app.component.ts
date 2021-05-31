@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SettingsComponent } from './shared/modules/settings/settings.component';
 import { UiComponentService } from './shared/services/ui-component.service';
 import { ThemeService } from './shared/services/theme.service';
+import { environment } from '../environments/environment';
 
 interface AppRoute {
   label: string;
@@ -15,14 +16,23 @@ interface AppRoute {
   providers: [UiComponentService],
 })
 export class AppComponent {
+  devRoute: AppRoute[] = environment.production
+    ? []
+    : [
+        {
+          label: 'playground',
+          target: '/playground',
+        },
+      ];
   routes: AppRoute[] = [
-    {
-      label: 'playground',
-      target: '/playground',
-    },
+    ...this.devRoute,
     {
       label: 'main',
       target: '/',
+    },
+    {
+      label: 'UI Components',
+      target: '/ui-examples',
     },
     {
       label: 'shop3d',

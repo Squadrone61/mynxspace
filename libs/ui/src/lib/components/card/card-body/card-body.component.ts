@@ -1,16 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'ui-card-body',
   template: ` <ng-content></ng-content> `,
-  styles: [
-    `
-      :host {
-        display: block;
-        margin-top: 1rem;
-      }
-    `,
-  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardBodyComponent {}
+export class CardBodyComponent {
+  @HostBinding('class') classes = 'block my-4 first:mt-0 last:mb-0';
+}

@@ -1,7 +1,9 @@
-import { Directive } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
 
 @Directive({
-  selector: '[ui-card-image]',
-  host: { class: 'card-image first:card-image-top last:card-image-bottom' },
+  selector: '[uiCardImage]',
 })
-export class CardImageDirective {}
+export class CardImageDirective {
+  @HostBinding('class') classes =
+    'card-image first:card-image-top last:card-image-bottom';
+}

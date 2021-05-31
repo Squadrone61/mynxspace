@@ -1,0 +1,49 @@
+<ng-container *ngTemplateOutlet="tmp; context: {title:'Button', template: btnRef}"></ng-container>
+<ng-container *ngTemplateOutlet="tmp; context: {title:'Input', template: inpRef}"></ng-container>
+<ng-container *ngTemplateOutlet="tmp; context: {title:'Card', template: crdRef}"></ng-container>
+
+<ng-template #btnRef>
+  <ui-button class="m-4" *ngFor="let btn of buttons" [options]="btn">button</ui-button>
+</ng-template>
+<ng-template #inpRef>
+  <form [formGroup]="ctrlgrp">
+    <ui-input class="w-64 inline-block" label="input" placeholder="holder" formControlName="input"></ui-input>
+    {{'rawvalue: ' + (ctrlgrp.getRawValue() | json)}}
+    {{'errors: ' + (ctrlgrp.get('input').errors | json)}}
+    {{'touched: ' + ctrlgrp.get('input').touched}}
+  </form>
+</ng-template>
+<ng-template #crdRef>
+  <div class="w-[calc(100%-2rem)] m-4 grid grid-cols-1 sm:grid-cols-3 gap-4 place-items-center"
+       *ngIf="(cats$ | async) as cats">
+    <ui-card *ngIf="cats[0] as cat">
+      <ui-card-header [avatar]="cat.image.url">
+        <ui-card-title>{{cat.name}}</ui-card-title>
+      </ui-card-header>
+      <img uiCardImage [src]="cat.image.url">
+      <ui-card-body>{{cat.description}}</ui-card-body>
+    </ui-card>
+
+    <ui-card *ngIf="cats[1] as cat">
+      <img uiCardImage [src]="cat.image.url">
+      <ui-card-body><b>{{cat.name}}</b> <br>{{cat.description}}</ui-card-body>
+    </ui-card>
+
+    <ui-card *ngIf="cats[2] as cat">
+      <ui-card-body><b>{{cat.name}}</b> <br>{{cat.description}}</ui-card-body>
+      <img uiCardImage [src]="cat.image.url">
+    </ui-card>
+
+  </div>
+</ng-template>
+
+<ng-template #tmp let-title="title" let-template="template">
+  <ui-card class="m-4">
+    <ui-card-header>
+      <ui-card-title>{{title}}</ui-card-title>
+    </ui-card-header>
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+  </ui-card>
+</ng-template>
+
+

@@ -7,11 +7,6 @@ export {
 } from './lib/components/button/button.component';
 
 export {
-  SelectComponent,
-  SelectModule,
-} from './lib/components/select/select.component';
-
-export {
   InputComponent,
   InputModule,
 } from './lib/components/input/input.component';

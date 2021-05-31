@@ -24,7 +24,7 @@ export class PlaygroundComponent {
     'velit ut, pretium purus. Vestibulum sollicitudin maximus fermentum. Suspendisse a lorem quis ex' +
     ' dignissim auctor. Pellentesque non velit felis.';*/
 
-  options: btnOptions = {
+  options: Partial<btnOptions> = {
     type: btnType.DEFAULT,
     color: Colors.PRIMARY,
   };
