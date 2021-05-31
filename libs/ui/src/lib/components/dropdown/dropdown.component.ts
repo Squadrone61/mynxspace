@@ -12,7 +12,6 @@ import { btnOptions } from '../../models';
   selector: 'ui-dropdown',
   template: `
     <ui-button
-      class="inline-block"
       cdkOverlayOrigin
       #origin="cdkOverlayOrigin"
       (uiClick)="isOpen = true"

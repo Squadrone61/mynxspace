@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { btnOptions, btnType, Colors } from '@libs/ui';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'mynxspace-playground',
@@ -9,13 +7,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlaygroundComponent {
-  imgSrc =
-    'https://www.indyturk.com/sites/default/files/styles/1368x911/public/article/main_image/2020/08/14/440866-1854448434.jpg?itok=QD0-zZeA';
-  iValue;
-  ctrl = new FormControl('');
-  ctrlgrp = new FormGroup({
-    inp1: new FormControl('', Validators.required),
-  });
   loremText =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nulla ex, euismod sed aliquam molestie, aliquet nec nunc.' +
     ' Integer faucibus euismod ex, scelerisque suscipit orci cursus at. Aenean accumsan finibus magna in varius. Nulla cursus ' +
@@ -23,37 +14,4 @@ export class PlaygroundComponent {
     ' urna eget sem porta, sed dictum ligula sollicitudin. Curabitur et pharetra tortor. Phasellus id dolor tempus, dapibus ' +
     'velit ut, pretium purus. Vestibulum sollicitudin maximus fermentum. Suspendisse a lorem quis ex' +
     ' dignissim auctor. Pellentesque non velit felis.';*/
-
-  options: Partial<btnOptions> = {
-    type: btnType.DEFAULT,
-    color: Colors.PRIMARY,
-  };
-  btnLoading = false;
-
-  colors: Colors[] = [Colors.PRIMARY, Colors.SECONDARY, Colors.PLAIN];
-  type: btnType[] = [
-    btnType.DEFAULT,
-    btnType.OUTLINE,
-    btnType.CIRCULAR,
-    btnType.SQUARE,
-  ];
-
-  setClr(e) {
-    this.options = {
-      ...this.options,
-      color: e,
-    };
-  }
-
-  setTy(e) {
-    this.options = {
-      ...this.options,
-      type: e,
-    };
-  }
-
-  loadStuff() {
-    this.btnLoading = !this.btnLoading;
-    this.ctrl.setValue('new txt');
-  }
 }

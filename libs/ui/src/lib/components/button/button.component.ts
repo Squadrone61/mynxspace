@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  HostBinding,
   Input,
   NgModule,
   Output,
@@ -45,6 +46,7 @@ import { SvgIconsModule } from '@ngneat/svg-icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
+  @HostBinding('class') classes = 'inline-block';
   _options: btnOptions = {
     color: Colors.PRIMARY,
     type: btnType.DEFAULT,
