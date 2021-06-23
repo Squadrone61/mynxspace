@@ -23,7 +23,7 @@ please feel free to send feedback. It's very important to me 🙂
 
 ## Live
 
-just angular: [safaakyuz.vercel.app](safaakyuz.vercel.app)
+just angular: [safaakyuz.vercel.app](https://safaakyuz.vercel.app)
 
 server with angular: -
 
