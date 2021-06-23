@@ -8,6 +8,9 @@ import { IconsModule } from './shared/modules/icons.module';
 import { SettingsModule } from './shared/modules/settings/settings.module';
 import { UiComponentHandler } from './shared/providers/ui-component.handler';
 import { ButtonModule, CardModule, DropdownModule } from '@libs/ui';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +25,8 @@ import { ButtonModule, CardModule, DropdownModule } from '@libs/ui';
 
     IconsModule,
     SettingsModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    AkitaNgRouterStoreModule,
   ],
   providers: [
     {
