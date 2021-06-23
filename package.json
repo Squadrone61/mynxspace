@@ -7,7 +7,7 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "build": "cross-env npm run front:prod && npm run api:prod",
-    "deploy": "node dist/apps/api/main.js",
+    "server": "node dist/apps/api/main.js",
     "front:dev": "nx run frontendapp:serve",
     "front:prod": "nx run frontendapp:build:production",
     "api:dev": "nx run api:serve",
