@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "preinstall": "if exist dist (rmdir /S /Q dist)",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "npm run front:prod && npm run api:prod",
     "front:dev": "nx run frontendapp:serve",
