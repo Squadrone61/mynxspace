@@ -2,7 +2,7 @@ const uiConfig = require('./libs/ui/tailwind.theme.js');
 
 module.exports = {
   presets: [uiConfig],
-  mode: 'jit',
+  mode: process.env.TAILWIND_MODE ? 'jit' : '',
   purge: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}'],
   theme: {
     extend: {},
