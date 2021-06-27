@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { environment } from "../environments/environment";
-import { RedirectGuard } from "./shared/providers/redirect.guard";
+import { Redirect, RedirectGuard } from "./shared/providers/redirect.guard";
 import { NoopComponent } from "./noop.component";
 
 const devRoutes: Routes = environment.production
@@ -39,14 +39,14 @@ const routes: Routes = [
     path: "secret",
     component: NoopComponent,
     canActivate: [RedirectGuard],
-    data: { externalUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
+    data: { [Redirect.externalUrl]: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
   },
   {
     path: "cv",
     component: NoopComponent,
     canActivate: [RedirectGuard],
-    data: { fileUrl: "/assets/SafaAkyuzCV.pdf" }
-  },
+    data: { [Redirect.fileUrl]: "/assets/SafaAkyuzCV.pdf" }
+  }
 ];
 
 @NgModule({
