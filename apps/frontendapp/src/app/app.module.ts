@@ -11,9 +11,10 @@ import { ButtonModule, CardModule, DropdownModule } from '@libs/ui';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
+import { NoopComponent } from './noop.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NoopComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
